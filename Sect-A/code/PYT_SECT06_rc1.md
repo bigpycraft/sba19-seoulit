@@ -5,7 +5,7 @@
 <hr>
 
 ## <font color='brown'>제어문</font>
-> 
+>   
 - if문
 - while문
 - for문
@@ -209,6 +209,11 @@ print("합계: {0}人 {1}원".format(total_num, total_price))
     합계: 10人 6320.0원
     
 
+
+```python
+
+```
+
 #### 응용 : 윤년 판정 프로그램
 
 - Case 1
@@ -294,6 +299,11 @@ else:
     서기 몇 년 ? 2020
     윤년입니다.
     
+
+
+```python
+
+```
 
 ### While 문
 

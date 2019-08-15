@@ -7,7 +7,7 @@
 <hr>
 
 ## <font color='brown'>데이터구조, Data Structure</font>
-> 
+>  
 - 리스트형, List Type
 - 튜플형, Tuple Type
 - 세트형, Set Type

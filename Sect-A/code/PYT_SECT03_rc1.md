@@ -5,7 +5,7 @@
 <hr>
 
 ## <font color='brown'>Python Basic </font>
-> 
+>  
 - 표준출력문, print( )
 - 표준입력문, input( )
 - 주석문, comment

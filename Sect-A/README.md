@@ -30,9 +30,9 @@
 - [[강의자료]][pyt-06]  [[소스코드]][code-06]  - P06.제어문                 
 - [[강의자료]][pyt-07]  [[소스코드]][code-07]  - P07.실습프로젝트            
 - [[강의자료]][pyt-08]  [[소스코드]][code-08]  - P08.함수                   
-- [[강의자료]][pyt-09]  [[소스코드]][code-09]  - P09.클래스                 
--  [강의자료]           [[소스코드]][code-10]  - Tip.모듈&패키지             
--  [강의자료]           [[소스코드]][code-11]  - Tip.에러&예외처리           
+- [[강의자료]][pyt-09]  [[소스코드]][code-09]  - P09.클래스               
+- [[강의자료]][pyt-10]  [[소스코드]][code-10]  - T10.모듈&패키지                       
+- [[강의자료]][pyt-11]  [[소스코드]][code-11]  - T11.에러&예외처리         
 
 [pyt-00]: ./docu/P00_빅데이터사이언스_실무자양성과정_특강.pdf  "Go Pyt-00"
 [pyt-01]: ./docu/P01.파이썬소개.pdf                            "Go Pyt-01"
@@ -47,10 +47,7 @@
 [pyt-08]: ./docu/P08.함수.pdf                                  "Go Pyt-08"
 [pyt-09]: ./docu/P09.클래스.pdf                                "Go Pyt-09"
 [pyt-10]: ./docu/P10.모듈&패키지.pdf                           "Go Pyt-10"
-[pyt-11]: ./docu/P11.실습프로젝트II.pdf                        "Go Pyt-11"
-[pyt-12]: ./docu/P12.입출력&로깅.pdf                           "Go Pyt-12"
-[pyt-13]: ./docu/P13.에러&예외처리.pdf                         "Go Pyt-13"
-[pyt-14]: ./docu/P14.파이참_개발환경.pdf                       "Go Pyt-14"
+[pyt-11]: ./docu/P11.에러&예외처리.pdf                         "Go Pyt-11"
 
 [code-00]: #                                                   "Go Code-00"
 [code-01]: #                                                   "Go Code-01"
@@ -59,14 +56,11 @@
 [code-04]: ./code/PYT_SECT04_rc1.md                            "Go Code-04"
 [code-05]: ./code/PYT_SECT05_rc1.md                            "Go Code-05"
 [code-06]: ./code/PYT_SECT06_rc1.md                            "Go Code-06"
-[code-07]: ./code/PYT_SECT07_rc1.md                            "Go Code-07"
 [code-07]: ./code/PYT_SECT07_rc3.md                            "Go Code-07"
 [code-08]: ./code/PYT_SECT08_rc1.md                            "Go Code-08"
-[code-09]: ./code/PYT_SECT09_rc1.md                            "Go Code-09"
 [code-09]: ./code/PYT_SECT09_rc3.md                            "Go Code-09"
 [code-10]: ./code/PYT_SECT10_rc1.md                            "Go Code-10"
 [code-11]: ./code/PYT_SECT11_rc1.md                            "Go Code-11"
-[code-13]: ./code/PYT_SECT13_rc1.md                            "Go Code-13"
 
 
 <hr>

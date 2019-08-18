@@ -31,7 +31,8 @@
 - [[강의자료]][pyt-07]  [[소스코드]][code-07]  - P07.실습프로젝트            
 - [[강의자료]][pyt-08]  [[소스코드]][code-08]  - P08.함수                   
 - [[강의자료]][pyt-09]  [[소스코드]][code-09]  - P09.클래스                 
-- [[강의자료]][pyt-10]  [[소스코드]][code-10]  - P10.모듈&패키지            
+-  [강의자료]           [[소스코드]][code-10]  - Tip.모듈&패키지             
+-  [강의자료]           [[소스코드]][code-11]  - Tip.에러&예외처리           
 
 [pyt-00]: ./docu/P00_빅데이터사이언스_실무자양성과정_특강.pdf  "Go Pyt-00"
 [pyt-01]: ./docu/P01.파이썬소개.pdf                            "Go Pyt-01"
@@ -58,8 +59,10 @@
 [code-04]: ./code/PYT_SECT04_rc1.md                            "Go Code-04"
 [code-05]: ./code/PYT_SECT05_rc1.md                            "Go Code-05"
 [code-06]: ./code/PYT_SECT06_rc1.md                            "Go Code-06"
+[code-07]: ./code/PYT_SECT07_rc1.md                            "Go Code-07"
 [code-07]: ./code/PYT_SECT07_rc3.md                            "Go Code-07"
 [code-08]: ./code/PYT_SECT08_rc1.md                            "Go Code-08"
+[code-09]: ./code/PYT_SECT09_rc1.md                            "Go Code-09"
 [code-09]: ./code/PYT_SECT09_rc3.md                            "Go Code-09"
 [code-10]: ./code/PYT_SECT10_rc1.md                            "Go Code-10"
 [code-11]: ./code/PYT_SECT11_rc1.md                            "Go Code-11"

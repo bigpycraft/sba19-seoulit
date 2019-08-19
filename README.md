@@ -17,21 +17,112 @@
 
 ## Innovation Growth Intensive Training
 - Python Programming Basics
+- Python Packages and Modules
+- Data Processing and Analysis
+- Web Cralwling
+- Natural Language Processing
+- Machine Learning
+- Deep Learning
 
 <hr>
 
 ## Python Develop Environment
 
-### Python 
->  Latest: Python 3.7.4
-- Download : https://www.python.org/downloads/windows/
-- Download the latest version 
-- Check the OS version & bit (32bit / 64bit)
+<hr>
 
-### PyCharm
->  Integrated Development Environment for Python
-- Download : https://www.jetbrains.com/pycharm/download/ 
-- Download Community Version
+<h3> Python </h3>
+
+<table align="left">
+    <tr align="left">
+        <td width="200">
+            <a href="https://www.python.org/">
+            <img src="./images/python-logo.png" width="150" />
+            </a>
+        </td>
+        <td width="800">
+<div align="left">
+<b> Latest: Python 3.7.4</b>
+<br/><br/>
+- Download : https://www.python.org/downloads/windows/
+<br/>
+- Download the latest version 
+<br/>
+- Check the OS version & bit (32bit / 64bit)
+</div></td>
+    </tr>
+</table>
+<br/>
+
+
+<hr>
+
+<h3> PyCharm </h3>
+
+<table align="left">
+    <tr align="left">
+        <td width="200">
+            <a href="https://www.jetbrains.com/pycharm/">
+            <img src="./images/pycharm-logo.png" width="150" />
+            </a>
+        </td>
+        <td width="800">
+<div align="left">
+<b> Latest : Python 3.7 version | Release Date: July 24, 2019</b>
+<br/><br/>
+- Download : https://www.jetbrains.com/pycharm/download/
+<br/>
+- Version: 2019.2
+<br/>
+- Build: 192.5728.105
+<br/>
+- July 24, 2019
+<br/>
+- Download Community Version 
+</div></td>
+    </tr>
+</table>
+<br/>
+
+
+<hr>
+
+<h3> Jupyter Notebook </h3>
+
+<table align="left">
+    <tr align="left">
+        <td width="200">
+            <a href="https://www.anaconda.com/distribution/">
+            <img src="./images/jupyter.jpg" width="150" />
+            </a>
+        </td>
+        <td width="800">
+<div align="left">
+<b> Latest : Version 2019.07 | Release Date: July 25, 2019 </b>
+<br/>
+- Python 3.7 version
+<br/>
+- Filename : Anaconda3-2019.07-Windows-x86_64.exe
+<br/>
+- Download : https://www.anaconda.com/distribution/
+<br/>
+- Check the OS version & bit (32bit / 64bit)
+</div>
+<br/>
+<div align="left">
+<b> Recommand Previous: Version 5.2 | Release Date: May 30, 2018 </b>
+<br/>
+- Filename : Anaconda3-5.2.0-Windows-x86_64.exe
+<br/>
+- Download : https://repo.continuum.io/archive/ 
+<br/>
+- Reason : TF Requires Python 3.4, 3.5, or 3.6 
+<br/>
+- TensorFlow : https://www.tensorflow.org/install/pip
+</div></td>
+    </tr>
+</table>
+<br/>
+
 
 <hr>
 <marquee><font size=3 color='brown'>The BigpyCraft find the information to design valuable society with Technology & Craft.</font></marquee>

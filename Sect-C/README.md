@@ -27,7 +27,7 @@
 - 2-4.  Module2                  <br/><br/>
 - 2-5. [DateTIme1              ][A2051]
 - <font color='#CC0000'> [실습문제] 파이썬프로그래밍 실습3 </font> ─────▶ [[클릭]][p-ex3]<br/><br/>
-- 2-6. [Map, Filter, Reduce    ][A2052]
+- 2-6. [Map, Filter, Reduce    ][A2101]
 - <font color='#CC0000'> [실습문제] 파이썬프로그래밍 실습4 </font> ─────▶ [[클릭]][p-ex4]<br/><br/>
 
 

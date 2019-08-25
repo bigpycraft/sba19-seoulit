@@ -25,13 +25,24 @@
 - 2-2. [FileIO OS-CMD          ][A2020]
 - 2-3. [Module1                ][A2030]
 - 2-4.  Module2                  
+<br/>
 - 2-5. [DateTIme1              ][A2051]
-- <font color='#CC0000'> [실습문제] 파이썬프로그래밍 실습3 </font> ─────▶ [[클릭]][p-ex3]<br/><br/>
-- 3-1. [Map, Filter, Reduce    ][A2101]
-- 3-1. [MFR Quiz               ][A2113]
-- <font color='#CC0000'> [실습문제] 파이썬프로그래밍 실습4 </font> ─────▶ [[클릭]][p-ex4]<br/><br/>
-- 3-2. [NumPy                  ][B3100]
-- 3-3. [JSON Handle            ][A2200]<br/><br/>
+- 2-6. [Map, Filter, Reduce    ][A2101]
+- 2-6. [MFR Quiz               ][A2113]
+<br/><br/>
+- 2-7. [JSON Handle            ][A2200]
+- 2-8. [Regular Expression     ][A2300]
+<br/><br/>
+- <font color='#CC0000'> [실습문제] 파이썬프로그래밍 실습3 </font> ─────▶ [[클릭]][p-ex3]
+- <font color='#CC0000'> [실습문제] 파이썬프로그래밍 실습4 </font> ─────▶ [[클릭]][p-ex4]
+<br/><br/>
+- 3-1. [NumPy1                 ][B3100]
+- 3-2. [NumPy2                 ][B3120]
+<br/><br/>
+- 4-1. [Pandas1                ][B3200]
+- 4-2. [Pandas2                ][B3220]
+- 4-3. [Pandas3                ][B3230]
+- 4-4. [Pandas4                ][B3240]
 
 
 [A2010]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html/BPC_A201_FileIO_Basic.html             "Go A2010"
@@ -63,11 +74,11 @@
 [B3330]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html/BPC_B333_Matplotlib_Annotattion.html   "Go A3330"
 [B3340]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html/BPC_B334_Matplotlib_Seaborn.html       "Go A3340"
 
-
 [p-ex1]: ../practice/P01_파이썬프로그래밍_실습.pdf                     "Go Practice-ex1"
 [p-ex2]: ../practice/P02_파이썬프로그래밍_실습.pdf                     "Go Practice-ex2"
 [p-ex3]: ../practice/P03_파이썬프로그래밍_실습.pdf                     "Go Practice-ex3"
 [p-ex4]: ../practice/P04_파이썬프로그래밍_실습.pdf                     "Go Practice-ex4"
+
 
 
 <hr>

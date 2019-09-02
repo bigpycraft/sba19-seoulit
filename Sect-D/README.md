@@ -37,7 +37,7 @@
 <br/><br/>
 - 8-0. [Kaggle Mission                          ][D4300]
 - 8-1. [Analytical Approach : General           ][D4310]
-- 8-2. [Analytical Approach : Advanced          ][D4323]
+- 8-2. [Analytical Approach : Advanced          ][D4324]
 <br/><br/>
 - 9-1. [Public Data Potal 1                     ][D4510]
 - 9-2. [Public Data Potal 2                     ][D4520]

@@ -42,6 +42,11 @@
 - 9-1. [Public Data Potal 1                     ][D4510]
 - 9-2. [Public Data Potal 2                     ][D4520]
 - Quiz.[Public Data Potal 3                     ][D4530]
+- 9-3. [Public Data Potal 3                     ][D4532]
+<br/><br/>
+- 10-1. [Folium for Map                         ][D4600]
+- 10-2. [Seoul Stat 1                           ][D4610]
+- 10-3. [Seoul Stat 2                           ][D4720]
 
 
 [D4110]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html/BPC_D411_Excel_IO.html                                "Go D4110"
@@ -65,6 +70,9 @@
 [D4530]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html/BPC_D453_DataGoKr_CCTV현황_in2017___Mission.html      "Go D4530"
 [D4532]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html/BPC_D453_DataGoKr_CCTV현황_in2017_ver2.html           "Go D4532"
 
+[D4600]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html/BPC_D460_Folium_for_Map_ver4.html                     "Go D4600"
+[D4610]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html/BPC_D461_OpenGov_Seoul_Population_2019_2Q.html        "Go D4610"
+[D4720]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html/BPC_D472_OpenGov_Seoul_CCTV_Population_ver4.html      "Go D4720"
 
 
 <hr>

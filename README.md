@@ -125,5 +125,42 @@
 
 
 <hr>
+
+### Selenium WebDriver 
+
+<table align="left">
+    <tr align="left">
+        <td width="200">
+            <a href="https://www.seleniumhq.org/projects/webdriver/">
+            <img src="./images/SeleniumHQ-logo.png" width="150" />
+            </a>
+        </td>
+        <td width="800">
+<div align="left">
+    <b> - Selenium HQ </b> : https://www.seleniumhq.org/projects/webdriver/
+    <br/><br/> - 아래 사이트에서 OS에 맞는 웹드라이브를 다운받아 압축을 풀어 driver 폴더에 복사
+    <br/><br/>
+    <b> 1. Chrome WebDriver </b> &nbsp;&nbsp; : <a href='http://chromedriver.chromium.org/downloads'>[다운로드1]</a>, &nbsp;&nbsp;&nbsp;<a href='https://sites.google.com/a/chromium.org/chromedriver/downloads'>[다운로드2]</a>
+    <br/><br/>
+    <b> 2. Firefox WebDriver </b> &nbsp;&nbsp;&nbsp;&nbsp; : <a href='https://github.com/mozilla/geckodriver/releases'>[다운로드]</a>
+    <br/><br/>
+    <b> 3. Microsoft WebDriver </b> : <a href='https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/'>[다운로드]</a>
+    <br/><br/>
+    <b> cf. 가장 보편적으로 많이 사용하는 크롬 웹드라이브를 다운받아서 설치한다. </b>
+</div>
+        </td>
+    </tr>
+</table>
+<br/>
+
+
+### Selenium 1.0 + WebDriver = Selenium 2.0
+- HomeSite : https://www.seleniumhq.org/projects/webdriver/
+- WebDriver is designed in a simpler and more concise programming interface along with addressing some limitations in the Selenium-RC API.
+- WebDriver is a compact Object Oriented API when compared to Selenium1.0
+- It drives the browser much more effectively and overcomes the limitations of Selenium 1.x which affected our functional test coverage, like the file upload or download, pop-ups and dialogs barrier
+- WebDriver overcomes the limitation of Selenium RC's Single Host origin policy
+
+<hr>
 <marquee><font size=3 color='brown'>The BigpyCraft find the information to design valuable society with Technology & Craft.</font></marquee>
 <div align='right'><font size=2 color='gray'> &lt; The End &gt; </font></div>

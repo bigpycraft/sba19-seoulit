@@ -38,7 +38,6 @@
 <br/><br/>
 - 13-1. [URL Parsing Tip               ][E5600]
 - 13-2. [How to use Selenium           ][E5700]
-- 13-3. [Selenium - StarBucks Idx      ][E5810]
 <br/><br/>
 - Quiz4. [Selenium Crawling Practice C ][E5800]
 <br/><br/>

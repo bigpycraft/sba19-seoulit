@@ -24,7 +24,7 @@
 ### KoNLPy
 - 14-1. [NLP Overview & Setting                    ][pkg-c1]
 - 14-2. [KoNLPy Module                             ][pkg-c2]
-- 14-3. [KoNLPy 형태소분석                         ][bpc-711]
+- 14-3. [KoNLPy 형태소분석                         ][pkg-c3]
 
 ### WordCloud
 - 15-1. [NLP WordCount - 법관련 국회의안           ][pkg-d1]
@@ -35,7 +35,6 @@
 - 15-5. [NLP WordCloud - Masking Kor Version       ][pkg-d5]
 
 
-[bpc-711]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html2/BPC_F711_NLP_KoNLPy_Module_ver2.html                "Go pkg-c1"
 [pkg-c1]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html2/PF_DA_711_NLP_KoNLPy_Module.html                "Go pkg-c1"
 [pkg-c2]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html2/PF_DA_720_KoNLPy_Module_ver2.0.html             "Go pkg-c2"
 [pkg-c3]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html2/PF_DA_730_KoNLPy_WordCloud_형태소분석_v2.html   "Go pkg-c3"

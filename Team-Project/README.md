@@ -4,8 +4,6 @@
 <div align='right'><font size=2 color='gray'>Python For BigData @ <font color='blue'><a href='https://www.facebook.com/jskim.kr'>FB / jskim.kr</a></font>, [김진수](bigpycraft@gmail.com)</font></div>
 <hr>
 
-## SBA 2019, Seoul Business Agency Innovation Growth Intensive Training
-
 <h2><font color="#00CCCC"><b>Team Project in BigData Science Cource</b></font></h2>
 
 <img src="./images/BigData_Project.png">

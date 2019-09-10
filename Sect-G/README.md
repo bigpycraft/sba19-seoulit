@@ -15,7 +15,7 @@
 - Web Cralwling
 - Natural Language Processing
 - <b>Machine Learning</b>
-- Deep Learning
+- <b>Deep Learning</b>
 
 <hr>
 
@@ -35,7 +35,17 @@
 - M4-1. [Neural Networks 1                  	   ][ML4010]
 - M4-2. [Neural Networks 2 (1)                 	   ][ML4021]
 - M4-2. [Neural Networks 2 (2)             	       ][ML4022]
-
+<br/><br/>
+- M5-1. [Softmax for MNIST                  	   ][ML5110]
+- M5-2. [NN for MNIST                       	   ][ML5120]
+- M5-3. [MNIST NN Xavier initialization(1)  	   ][ML5132]
+- M5-3. [MNIST NN Xavier initialization(2)  	   ][ML5133]
+- M5-4. [MNIST NN deep                      	   ][ML5140]
+- M5-5. [MNIST NN Dropout                   	   ][ML5150]
+<br/><br/>
+- Ref1. [MNIST NN Batchnorm                		   ][ML5160]
+- Ref2. [MNIST NN Higher Level API         		   ][ML5170]
+<br/><br/>
 
 [ML1010]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html_mldl/BDA-ML101-Basics_operations.html                 "Go ML1010"
 [ML1020]:  https://htmlpreview.github.io/?https://github.com/bigpycraft/sba19-seoulit/blob/master/notebook/html_mldl/BDA-ML102-Linear_Regression.html                 "Go ML1020"

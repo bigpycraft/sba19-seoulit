@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>BDA-ML517-MNIST_NN_Higher_Level_API</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>BDA-ML621-MNIST_CNN</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11792,7 +11792,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Sect10.-NN,-ReLu,-Xavier,-Dropout,-and-Adam">Sect10. NN, ReLu, Xavier, Dropout, and Adam<a class="anchor-link" href="#Sect10.-NN,-ReLu,-Xavier,-Dropout,-and-Adam">&#182;</a></h1>
+<h1 id="Sect11.-CNN-(Convolutional-Newural-Network)">Sect11. CNN (Convolutional Newural Network)<a class="anchor-link" href="#Sect11.-CNN-(Convolutional-Newural-Network)">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11800,28 +11800,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="7.-MNIST-and-High-level-TF-API">7. MNIST and High-level TF API<a class="anchor-link" href="#7.-MNIST-and-High-level-TF-API">&#182;</a></h3>
+<h3 id="1.-MNIST-CNN">1. MNIST CNN<a class="anchor-link" href="#1.-MNIST-CNN">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">images</span> <span class="k">import</span> <span class="n">bigpycraft_ai</span> <span class="k">as</span> <span class="n">bpc</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span> 
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm_notebook</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
@@ -11846,12 +11831,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># MNIST and High-level TF API</span>
-<span class="kn">from</span> <span class="nn">tensorflow.contrib.layers</span> <span class="k">import</span> <span class="n">fully_connected</span><span class="p">,</span> <span class="n">batch_norm</span><span class="p">,</span> <span class="n">dropout</span>
-<span class="kn">from</span> <span class="nn">tensorflow.contrib.framework</span> <span class="k">import</span> <span class="n">arg_scope</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lab 11 MNIST and Convolutional Neural Network</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -11863,28 +11846,6 @@ div#notebook {
 <span class="n">mnist</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">&quot;data/MNIST_data/&quot;</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Check out https://www.tensorflow.org/get_started/mnist/beginners for</span>
 <span class="c1"># more information about the mnist dataset</span>
-
-<span class="c1"># parameters</span>
-<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># we can use large learning rate using Batch Normalization</span>
-<span class="n">training_epochs</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">keep_prob</span> <span class="o">=</span> <span class="mf">0.7</span>
-
-<span class="c1"># input place holders</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">784</span><span class="p">])</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="n">train_mode</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;train_mode&#39;</span><span class="p">)</span>
-
-<span class="c1"># layer output size</span>
-<span class="n">hidden_output_size</span> <span class="o">=</span> <span class="mi">512</span>
-<span class="n">final_output_size</span> <span class="o">=</span> <span class="mi">10</span>
-
-<span class="n">xavier_init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">xavier_initializer</span><span class="p">()</span>
-<span class="n">bn_params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;is_training&#39;</span><span class="p">:</span> <span class="n">train_mode</span><span class="p">,</span>
-    <span class="s1">&#39;decay&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
-    <span class="s1">&#39;updates_collections&#39;</span><span class="p">:</span> <span class="kc">None</span>
-<span class="p">}</span>
 </pre></div>
 
 </div>
@@ -11900,12 +11861,78 @@ div#notebook {
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>C:\Python\Anaconda3-50\lib\site-packages\h5py\__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-  from ._conv import register_converters as _register_converters
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Extracting data/MNIST_data/train-images-idx3-ubyte.gz
+Extracting data/MNIST_data/train-labels-idx1-ubyte.gz
+Extracting data/MNIST_data/t10k-images-idx3-ubyte.gz
+Extracting data/MNIST_data/t10k-labels-idx1-ubyte.gz
 </pre>
 </div>
 </div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="./images/lab11_simple_cnn.png" alt="Graph"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Convolution-Layer1">Convolution Layer1<a class="anchor-link" href="#Convolution-Layer1">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># hyper parameters</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">training_epochs</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># input place holders</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">784</span><span class="p">])</span>
+<span class="n">X_img</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>   <span class="c1"># img 28x28x1 (black/white)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+
+<span class="c1"># L1 ImgIn shape=(?, 28, 28, 1)</span>
+<span class="n">W1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;W1 (tf.random_normal) </span><span class="se">\t</span><span class="s1">: &#39;</span><span class="p">,</span> <span class="n">W1</span><span class="p">)</span>
+<span class="c1">#    Conv     -&gt; (?, 28, 28, 32)</span>
+<span class="c1">#    Pool     -&gt; (?, 14, 14, 32)</span>
+
+<span class="n">L1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">X_img</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tf.nn.conv2d </span><span class="se">\t</span><span class="s1">: &#39;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tf.nn.relu </span><span class="se">\t</span><span class="s1">: &#39;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                    <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tf.nn.max_pool </span><span class="se">\t</span><span class="s1">: &#39;</span><span class="p">,</span> <span class="n">L1</span><span class="p">)</span>
+<span class="c1"># &#39;&#39;&#39;</span>
+<span class="c1"># Tensor(&quot;Conv2D:0&quot;, shape=(?, 28, 28, 32), dtype=float32)</span>
+<span class="c1"># Tensor(&quot;Relu:0&quot;, shape=(?, 28, 28, 32), dtype=float32)</span>
+<span class="c1"># Tensor(&quot;MaxPool:0&quot;, shape=(?, 14, 14, 32), dtype=float32)</span>
+<span class="c1"># &#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
 
 <div class="output_area">
 
@@ -11913,28 +11940,10 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>WARNING:tensorflow:From &lt;ipython-input-3-f41b66509194&gt;:12: read_data_sets (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use alternatives such as official/mnist/dataset.py from tensorflow/models.
-WARNING:tensorflow:From C:\Python\Anaconda3-50\lib\site-packages\tensorflow\contrib\learn\python\learn\datasets\mnist.py:260: maybe_download (from tensorflow.contrib.learn.python.learn.datasets.base) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please write your own downloading logic.
-WARNING:tensorflow:From C:\Python\Anaconda3-50\lib\site-packages\tensorflow\contrib\learn\python\learn\datasets\mnist.py:262: extract_images (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use tf.data to implement this functionality.
-Extracting data/MNIST_data/train-images-idx3-ubyte.gz
-WARNING:tensorflow:From C:\Python\Anaconda3-50\lib\site-packages\tensorflow\contrib\learn\python\learn\datasets\mnist.py:267: extract_labels (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use tf.data to implement this functionality.
-Extracting data/MNIST_data/train-labels-idx1-ubyte.gz
-WARNING:tensorflow:From C:\Python\Anaconda3-50\lib\site-packages\tensorflow\contrib\learn\python\learn\datasets\mnist.py:110: dense_to_one_hot (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use tf.one_hot on tensors.
-Extracting data/MNIST_data/t10k-images-idx3-ubyte.gz
-Extracting data/MNIST_data/t10k-labels-idx1-ubyte.gz
-WARNING:tensorflow:From C:\Python\Anaconda3-50\lib\site-packages\tensorflow\contrib\learn\python\learn\datasets\mnist.py:290: DataSet.__init__ (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use alternatives such as official/mnist/dataset.py from tensorflow/models.
+<pre>W1 (tf.random_normal) 	:  Tensor(&#34;Variable/read:0&#34;, shape=(3, 3, 1, 32), dtype=float32)
+tf.nn.conv2d 	:  Tensor(&#34;Conv2D:0&#34;, shape=(?, 28, 28, 32), dtype=float32)
+tf.nn.relu 	:  Tensor(&#34;Relu:0&#34;, shape=(?, 28, 28, 32), dtype=float32)
+tf.nn.max_pool 	:  Tensor(&#34;MaxPool:0&#34;, shape=(?, 14, 14, 32), dtype=float32)
 </pre>
 </div>
 </div>
@@ -11942,36 +11951,40 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Convolution-Layer2">Convolution Layer2<a class="anchor-link" href="#Convolution-Layer2">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We can build short code using &#39;arg_scope&#39; to avoid duplicate code</span>
-<span class="c1"># same function with different arguments</span>
-<span class="k">with</span> <span class="n">arg_scope</span><span class="p">([</span><span class="n">fully_connected</span><span class="p">],</span>
-               <span class="n">activation_fn</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">,</span>
-               <span class="n">weights_initializer</span><span class="o">=</span><span class="n">xavier_init</span><span class="p">,</span>
-               <span class="n">biases_initializer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-               <span class="n">normalizer_fn</span><span class="o">=</span><span class="n">batch_norm</span><span class="p">,</span>
-               <span class="n">normalizer_params</span><span class="o">=</span><span class="n">bn_params</span>
-               <span class="p">):</span>
-    <span class="n">hidden_layer1</span> <span class="o">=</span> <span class="n">fully_connected</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">hidden_output_size</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;h1&quot;</span><span class="p">)</span>
-    <span class="n">h1_drop</span> <span class="o">=</span> <span class="n">dropout</span><span class="p">(</span><span class="n">hidden_layer1</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">,</span> <span class="n">is_training</span><span class="o">=</span><span class="n">train_mode</span><span class="p">)</span>
-    <span class="n">hidden_layer2</span> <span class="o">=</span> <span class="n">fully_connected</span><span class="p">(</span><span class="n">h1_drop</span><span class="p">,</span> <span class="n">hidden_output_size</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;h2&quot;</span><span class="p">)</span>
-    <span class="n">h2_drop</span> <span class="o">=</span> <span class="n">dropout</span><span class="p">(</span><span class="n">hidden_layer1</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">,</span> <span class="n">is_training</span><span class="o">=</span><span class="n">train_mode</span><span class="p">)</span>
-    <span class="n">hidden_layer3</span> <span class="o">=</span> <span class="n">fully_connected</span><span class="p">(</span><span class="n">h2_drop</span><span class="p">,</span> <span class="n">hidden_output_size</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;h3&quot;</span><span class="p">)</span>
-    <span class="n">h3_drop</span> <span class="o">=</span> <span class="n">dropout</span><span class="p">(</span><span class="n">hidden_layer1</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">,</span> <span class="n">is_training</span><span class="o">=</span><span class="n">train_mode</span><span class="p">)</span>
-    <span class="n">hidden_layer4</span> <span class="o">=</span> <span class="n">fully_connected</span><span class="p">(</span><span class="n">h3_drop</span><span class="p">,</span> <span class="n">hidden_output_size</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;h4&quot;</span><span class="p">)</span>
-    <span class="n">h4_drop</span> <span class="o">=</span> <span class="n">dropout</span><span class="p">(</span><span class="n">hidden_layer1</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">,</span> <span class="n">is_training</span><span class="o">=</span><span class="n">train_mode</span><span class="p">)</span>
-    <span class="n">hypothesis</span> <span class="o">=</span> <span class="n">fully_connected</span><span class="p">(</span><span class="n">h4_drop</span><span class="p">,</span> <span class="n">final_output_size</span><span class="p">,</span> <span class="n">activation_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;hypothesis&quot;</span><span class="p">)</span>
-
-
-<span class="c1"># define cost/loss &amp; optimizer</span>
-<span class="n">cost</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span>
-    <span class="n">logits</span><span class="o">=</span><span class="n">hypothesis</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">Y</span><span class="p">))</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># L2 ImgIn shape=(?, 14, 14, 32)</span>
+<span class="n">W2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;W2 (tf.random_normal) </span><span class="se">\t</span><span class="s1">: &#39;</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span>
+<span class="c1">#    Conv      -&gt;(?, 14, 14, 64)</span>
+<span class="c1">#    Pool      -&gt;(?, 7, 7, 64)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tf.nn.conv2d </span><span class="se">\t</span><span class="s1">:&#39;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tf.nn.relu </span><span class="se">\t</span><span class="s1">:&#39;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">L2</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                    <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tf.nn.max_pool </span><span class="se">\t</span><span class="s1">:&#39;</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
+<span class="n">L2_flat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">L2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">64</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tf.reshape </span><span class="se">\t</span><span class="s1">:&#39;</span><span class="p">,</span> <span class="n">L2_flat</span><span class="p">)</span>
+<span class="c1"># &#39;&#39;&#39;</span>
+<span class="c1"># Tensor(&quot;Conv2D_1:0&quot;, shape=(?, 14, 14, 64), dtype=float32)</span>
+<span class="c1"># Tensor(&quot;Relu_1:0&quot;, shape=(?, 14, 14, 64), dtype=float32)</span>
+<span class="c1"># Tensor(&quot;MaxPool_1:0&quot;, shape=(?, 7, 7, 64), dtype=float32)</span>
+<span class="c1"># Tensor(&quot;Reshape_1:0&quot;, shape=(?, 3136), dtype=float32)</span>
+<span class="c1"># &#39;&#39;&#39;</span>
 </pre></div>
 
 </div>
@@ -11988,13 +12001,74 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>WARNING:tensorflow:From &lt;ipython-input-4-7616f1ef9cab&gt;:23: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
-Instructions for updating:
+<pre>W2 (tf.random_normal) 	:  Tensor(&#34;Variable_1/read:0&#34;, shape=(3, 3, 32, 64), dtype=float32)
+tf.nn.conv2d 	: Tensor(&#34;Conv2D_1:0&#34;, shape=(?, 14, 14, 64), dtype=float32)
+tf.nn.relu 	: Tensor(&#34;Relu_1:0&#34;, shape=(?, 14, 14, 64), dtype=float32)
+tf.nn.max_pool 	: Tensor(&#34;MaxPool_1:0&#34;, shape=(?, 7, 7, 64), dtype=float32)
+tf.reshape 	: Tensor(&#34;Reshape_1:0&#34;, shape=(?, 3136), dtype=float32)
+</pre>
+</div>
+</div>
 
-Future major versions of TensorFlow will allow gradients to flow
-into the labels input on backprop by default.
+</div>
+</div>
 
-See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fully-Connected-(FC,-Dense)-layer">Fully Connected (FC, Dense) layer<a class="anchor-link" href="#Fully-Connected-(FC,-Dense)-layer">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Final FC 7x7x64 inputs -&gt; 10 outputs</span>
+<span class="n">W3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;W3&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                     <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">xavier_initializer</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;W3 (xavier_initializer) </span><span class="se">\t</span><span class="s1">: &#39;</span><span class="p">,</span> <span class="n">W3</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="mi">10</span><span class="p">]))</span>
+<span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">L2_flat</span><span class="p">,</span> <span class="n">W3</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="c1"># define cost/loss &amp; optimizer</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span>
+    <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">Y</span><span class="p">))</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cost :&#39;</span><span class="p">,</span> <span class="n">cost</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;optimizer :</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>W3 (xavier_initializer) 	:  Tensor(&#34;W3/read:0&#34;, shape=(3136, 10), dtype=float32)
+cost : Tensor(&#34;Mean:0&#34;, shape=(), dtype=float32)
+optimizer :
+ name: &#34;Adam&#34;
+op: &#34;NoOp&#34;
+input: &#34;^Adam/update_Variable/ApplyAdam&#34;
+input: &#34;^Adam/update_Variable_1/ApplyAdam&#34;
+input: &#34;^Adam/update_W3/ApplyAdam&#34;
+input: &#34;^Adam/update_Variable_2/ApplyAdam&#34;
+input: &#34;^Adam/Assign&#34;
+input: &#34;^Adam/Assign_1&#34;
 
 </pre>
 </div>
@@ -12004,20 +12078,25 @@ See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Training">Training<a class="anchor-link" href="#Training">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># parameters</span>
-<span class="n">training_epochs</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span>
-
-<span class="c1"># initialize</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># initialize</span>
 <span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">())</span>
 
 <span class="c1"># train my model</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Learning started. It takes sometime.&#39;</span><span class="p">)</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">training_epochs</span><span class="p">):</span>
     <span class="n">avg_cost</span> <span class="o">=</span> <span class="mi">0</span>
@@ -12025,14 +12104,11 @@ See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total_batch</span><span class="p">):</span>
         <span class="n">batch_xs</span><span class="p">,</span> <span class="n">batch_ys</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
-        <span class="n">feed_dict_train</span> <span class="o">=</span> <span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="n">batch_xs</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">batch_ys</span><span class="p">,</span> <span class="n">train_mode</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-        <span class="n">feed_dict_cost</span> <span class="o">=</span> <span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="n">batch_xs</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">batch_ys</span><span class="p">,</span> <span class="n">train_mode</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
-        <span class="n">opt</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict_train</span><span class="p">)</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict_cost</span><span class="p">)</span>
+        <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="n">batch_xs</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">batch_ys</span><span class="p">}</span>
+        <span class="n">c</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">cost</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
         <span class="n">avg_cost</span> <span class="o">+=</span> <span class="n">c</span> <span class="o">/</span> <span class="n">total_batch</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Epoch: </span><span class="si">{:&gt;4}</span><span class="s2">]  cost = </span><span class="si">{:&gt;.9}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">avg_cost</span><span class="p">))</span>
-    <span class="c1">#print(&#39;Epoch:&#39;, &#39;%04d&#39; % (epoch + 1), &#39;cost =&#39;, &#39;{:.9f}&#39;.format(avg_cost))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch:&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;cost =&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:.9f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avg_cost</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Learning Finished!&#39;</span><span class="p">)</span>
 <span class="n">time2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -12054,36 +12130,37 @@ See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[Epoch:    1]  cost = 0.519231419
-[Epoch:    2]  cost = 0.438705442
-[Epoch:    3]  cost = 0.413668184
-[Epoch:    4]  cost = 0.40342688
-[Epoch:    5]  cost = 0.396685044
-[Epoch:    6]  cost = 0.388849067
-[Epoch:    7]  cost = 0.38480373
-[Epoch:    8]  cost = 0.381158128
-[Epoch:    9]  cost = 0.378211903
-[Epoch:   10]  cost = 0.37503401
-[Epoch:   11]  cost = 0.373099917
-[Epoch:   12]  cost = 0.370405816
-[Epoch:   13]  cost = 0.369490272
-[Epoch:   14]  cost = 0.36729656
-[Epoch:   15]  cost = 0.36560615
+<pre>Learning started. It takes sometime.
+Epoch: 0001 cost = 0.358514333
+Epoch: 0002 cost = 0.098277139
+Epoch: 0003 cost = 0.070610365
+Epoch: 0004 cost = 0.057040289
+Epoch: 0005 cost = 0.047120309
+Epoch: 0006 cost = 0.041251445
+Epoch: 0007 cost = 0.036282639
+Epoch: 0008 cost = 0.032006412
+Epoch: 0009 cost = 0.027889032
+Epoch: 0010 cost = 0.024118069
+Epoch: 0011 cost = 0.021238505
+Epoch: 0012 cost = 0.020259268
+Epoch: 0013 cost = 0.016682331
+Epoch: 0014 cost = 0.013662303
+Epoch: 0015 cost = 0.013655864
 Learning Finished!
-처리시간 : 3분 7초 경과되었습니다.
+처리시간 : 13분 52초 경과되었습니다.
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>187.05027151107788</pre>
+<pre>832.6799268722534</pre>
 </div>
 
 </div>
@@ -12091,23 +12168,31 @@ Learning Finished!
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Evaluation">Evaluation<a class="anchor-link" href="#Evaluation">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test model and check accuracy</span>
-<span class="n">correct_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">correct_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">accuracy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">correct_prediction</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy:&#39;</span><span class="p">,</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">accuracy</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span>
-      <span class="n">X</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">train_mode</span><span class="p">:</span> <span class="kc">False</span><span class="p">}))</span>
+      <span class="n">X</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">}))</span>
 
 <span class="c1"># Get one and predict</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">num_examples</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Label: &quot;</span><span class="p">,</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">r</span><span class="p">:</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prediction: &quot;</span><span class="p">,</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">r</span><span class="p">:</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">train_mode</span><span class="p">:</span> <span class="kc">False</span><span class="p">}))</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">r</span><span class="p">:</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]}))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">r</span><span class="p">:</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span>
           <span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
@@ -12128,7 +12213,7 @@ Learning Finished!
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Accuracy: 0.9813
+<pre>Accuracy: 0.9874
 Label:  [3]
 Prediction:  [3]
 </pre>
@@ -12143,72 +12228,105 @@ Prediction:  [3]
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
+<img src="data:image/png;base64,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
 "
 >
 </div>

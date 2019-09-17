@@ -82,7 +82,7 @@
 	<tr>
 		<td><div align="center"> F팀<br/> <b>이구아나</b>                                                                                         </div></td>
 		<td><div align="left"  > 김재경, 김수환	<br/> 이승은, 신은영                                                                              </div></td>
-		<td><div align="left"  > 서울 vs 지방, 의료 양극화 보안	                                                                                  </div></td>
+		<td><div align="left"  > 서울 vs 지방, 의료 양극화 보완	                                                                                  </div></td>
 		<td><div align="center"> <a href="reports/SBA19_S1_착수보고서_F팀.pdf"><img src='images/Team_F_양극화.png'  width=200 height=100></a>     </div></td>
 	</tr>
 	<tr>

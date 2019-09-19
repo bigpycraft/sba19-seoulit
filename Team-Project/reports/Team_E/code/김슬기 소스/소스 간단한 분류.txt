@@ -1,0 +1,17 @@
+#트위터데이터 뽑기
+Twitter Crawling_15~19-06
+Twitter Crawling_1907
+
+#트위터데이터 전처리
+nlp stopWord source
+
+#단어뽑기
+nouns_twitter_data_15~19-06
+News_nouns (공통단어 찾기)
+noun1_and_noun2_twitter_2019
+
+#이외 여러 시도
+워드클라우드
+No_Japan_heatmap
+twitter19_연관분석( 시도는 했으나 유효한 데이터를 뽑지는 못함)
+date_cnt_시계열

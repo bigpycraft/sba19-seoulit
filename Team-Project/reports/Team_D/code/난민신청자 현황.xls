@@ -1,0 +1,179 @@
+
+
+
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </head>
+
+
+	
+	<br>
+	<table border=1>
+		<caption>난민신청자 현황 (연도별, 성별, 국적별) [단위 : 명]</caption>
+			<thead>
+			<tr>
+			<th colspan="2" rowspan="1">&nbsp;</th>
+			<th data-id='t282001_h_0' data-index='0' data-name='td_282001_cc_0' class="tc" data-headers='td_282001_cc_0'  rowspan='1'>2010</th>
+<th data-id='t282001_h_1' data-index='1' data-name='td_282001_cc_1' class="tc" data-headers='td_282001_cc_1'  rowspan='1'>2011</th>
+<th data-id='t282001_h_2' data-index='2' data-name='td_282001_cc_2' class="tc" data-headers='td_282001_cc_2'  rowspan='1'>2012</th>
+<th data-id='t282001_h_3' data-index='3' data-name='td_282001_cc_3' class="tc" data-headers='td_282001_cc_3'  rowspan='1'>2013</th>
+<th data-id='t282001_h_4' data-index='4' data-name='td_282001_cc_4' class="tc" data-headers='td_282001_cc_4'  rowspan='1'>2014</th>
+<th data-id='t282001_h_5' data-index='5' data-name='td_282001_cc_5' class="tc" data-headers='td_282001_cc_5'  rowspan='1'>2015</th>
+<th data-id='t282001_h_6' data-index='6' data-name='td_282001_cc_6' class="tc" data-headers='td_282001_cc_6'  rowspan='1'>2016</th>
+<th data-id='t282001_h_7' data-index='7' data-name='td_282001_cc_7' class="tc" data-headers='td_282001_cc_7'  rowspan='1'>2017</th>
+<th data-id='t282001_h_8' data-index='8' data-name='td_282001_cc_8' class="tc" data-headers='td_282001_cc_8'  rowspan='1'>2018</th>
+</tr>
+			</thead>
+			<tbody>
+	
+				<tr>
+				
+				<th class="tl" data-id ='t282001_c1_0' colspan='2' rowspan='1'>합계</th>
+	<td headers='t282001_h_0 t282001_c1_0'>423</td>
+<td headers='t282001_h_1 t282001_c1_0'>1,011</td>
+<td headers='t282001_h_2 t282001_c1_0'>1,143</td>
+<td headers='t282001_h_3 t282001_c1_0'>1,574</td>
+<td headers='t282001_h_4 t282001_c1_0'>2,896</td>
+<td headers='t282001_h_5 t282001_c1_0'>5,711</td>
+<td headers='t282001_h_6 t282001_c1_0'>7,542</td>
+<td headers='t282001_h_7 t282001_c1_0'>9,942</td>
+<td headers='t282001_h_8 t282001_c1_0'>16,173</td>
+
+				</tr>
+	
+				<tr>
+				
+				<th class="tl" data-id ='t282001_c1_1' colspan='1' rowspan='2'>성별</th><th class="tl" data-id ='t282001_c2_10' colspan='1' rowspan='1'>남자</th>
+	<td headers='t282001_h_0 t282001_c1_1 t282001_c2_10'>359</td>
+<td headers='t282001_h_1 t282001_c1_1 t282001_c2_10'>909</td>
+<td headers='t282001_h_2 t282001_c1_1 t282001_c2_10'>1,039</td>
+<td headers='t282001_h_3 t282001_c1_1 t282001_c2_10'>1,366</td>
+<td headers='t282001_h_4 t282001_c1_1 t282001_c2_10'>2,403</td>
+<td headers='t282001_h_5 t282001_c1_1 t282001_c2_10'>4,814</td>
+<td headers='t282001_h_6 t282001_c1_1 t282001_c2_10'>6,147</td>
+<td headers='t282001_h_7 t282001_c1_1 t282001_c2_10'>7,825</td>
+<td headers='t282001_h_8 t282001_c1_1 t282001_c2_10'>12,126</td>
+
+				</tr>
+	
+				<tr>
+				
+				
+<th class="tl" data-id ='t282001_c2_11' colspan='1' rowspan='1'>여자</th>
+	<td headers='t282001_h_0 t282001_c1_1 t282001_c2_11'>64</td>
+<td headers='t282001_h_1 t282001_c1_1 t282001_c2_11'>102</td>
+<td headers='t282001_h_2 t282001_c1_1 t282001_c2_11'>104</td>
+<td headers='t282001_h_3 t282001_c1_1 t282001_c2_11'>208</td>
+<td headers='t282001_h_4 t282001_c1_1 t282001_c2_11'>493</td>
+<td headers='t282001_h_5 t282001_c1_1 t282001_c2_11'>897</td>
+<td headers='t282001_h_6 t282001_c1_1 t282001_c2_11'>1,395</td>
+<td headers='t282001_h_7 t282001_c1_1 t282001_c2_11'>2,117</td>
+<td headers='t282001_h_8 t282001_c1_1 t282001_c2_11'>4,047</td>
+
+				</tr>
+	
+				<tr>
+				
+				<th class="tl" data-id ='t282001_c1_2' colspan='1' rowspan='6'>국적</th><th class="tl" data-id ='t282001_c2_20' colspan='1' rowspan='1'>파키스탄</th>
+	<td headers='t282001_h_0 t282001_c1_2 t282001_c2_20'>129</td>
+<td headers='t282001_h_1 t282001_c1_2 t282001_c2_20'>434</td>
+<td headers='t282001_h_2 t282001_c1_2 t282001_c2_20'>242</td>
+<td headers='t282001_h_3 t282001_c1_2 t282001_c2_20'>275</td>
+<td headers='t282001_h_4 t282001_c1_2 t282001_c2_20'>396</td>
+<td headers='t282001_h_5 t282001_c1_2 t282001_c2_20'>1,143</td>
+<td headers='t282001_h_6 t282001_c1_2 t282001_c2_20'>809</td>
+<td headers='t282001_h_7 t282001_c1_2 t282001_c2_20'>667</td>
+<td headers='t282001_h_8 t282001_c1_2 t282001_c2_20'>1,120</td>
+
+				</tr>
+	
+				<tr>
+				
+				
+<th class="tl" data-id ='t282001_c2_21' colspan='1' rowspan='1'>이집트</th>
+	<td headers='t282001_h_0 t282001_c1_2 t282001_c2_21'>0</td>
+<td headers='t282001_h_1 t282001_c1_2 t282001_c2_21'>4</td>
+<td headers='t282001_h_2 t282001_c1_2 t282001_c2_21'>7</td>
+<td headers='t282001_h_3 t282001_c1_2 t282001_c2_21'>97</td>
+<td headers='t282001_h_4 t282001_c1_2 t282001_c2_21'>568</td>
+<td headers='t282001_h_5 t282001_c1_2 t282001_c2_21'>812</td>
+<td headers='t282001_h_6 t282001_c1_2 t282001_c2_21'>1,002</td>
+<td headers='t282001_h_7 t282001_c1_2 t282001_c2_21'>741</td>
+<td headers='t282001_h_8 t282001_c1_2 t282001_c2_21'>870</td>
+
+				</tr>
+	
+				<tr>
+				
+				
+<th class="tl" data-id ='t282001_c2_22' colspan='1' rowspan='1'>중국</th>
+	<td headers='t282001_h_0 t282001_c1_2 t282001_c2_22'>7</td>
+<td headers='t282001_h_1 t282001_c1_2 t282001_c2_22'>8</td>
+<td headers='t282001_h_2 t282001_c1_2 t282001_c2_22'>3</td>
+<td headers='t282001_h_3 t282001_c1_2 t282001_c2_22'>45</td>
+<td headers='t282001_h_4 t282001_c1_2 t282001_c2_22'>360</td>
+<td headers='t282001_h_5 t282001_c1_2 t282001_c2_22'>401</td>
+<td headers='t282001_h_6 t282001_c1_2 t282001_c2_22'>1,061</td>
+<td headers='t282001_h_7 t282001_c1_2 t282001_c2_22'>1,413</td>
+<td headers='t282001_h_8 t282001_c1_2 t282001_c2_22'>1,199</td>
+
+				</tr>
+	
+				<tr>
+				
+				
+<th class="tl" data-id ='t282001_c2_23' colspan='1' rowspan='1'>시리아</th>
+	<td headers='t282001_h_0 t282001_c1_2 t282001_c2_23'>0</td>
+<td headers='t282001_h_1 t282001_c1_2 t282001_c2_23'>2</td>
+<td headers='t282001_h_2 t282001_c1_2 t282001_c2_23'>146</td>
+<td headers='t282001_h_3 t282001_c1_2 t282001_c2_23'>295</td>
+<td headers='t282001_h_4 t282001_c1_2 t282001_c2_23'>204</td>
+<td headers='t282001_h_5 t282001_c1_2 t282001_c2_23'>404</td>
+<td headers='t282001_h_6 t282001_c1_2 t282001_c2_23'>171</td>
+<td headers='t282001_h_7 t282001_c1_2 t282001_c2_23'>103</td>
+<td headers='t282001_h_8 t282001_c1_2 t282001_c2_23'>64</td>
+
+				</tr>
+	
+				<tr>
+				
+				
+<th class="tl" data-id ='t282001_c2_24' colspan='1' rowspan='1'>나이지리아</th>
+	<td headers='t282001_h_0 t282001_c1_2 t282001_c2_24'>19</td>
+<td headers='t282001_h_1 t282001_c1_2 t282001_c2_24'>39</td>
+<td headers='t282001_h_2 t282001_c1_2 t282001_c2_24'>102</td>
+<td headers='t282001_h_3 t282001_c1_2 t282001_c2_24'>207</td>
+<td headers='t282001_h_4 t282001_c1_2 t282001_c2_24'>201</td>
+<td headers='t282001_h_5 t282001_c1_2 t282001_c2_24'>264</td>
+<td headers='t282001_h_6 t282001_c1_2 t282001_c2_24'>324</td>
+<td headers='t282001_h_7 t282001_c1_2 t282001_c2_24'>486</td>
+<td headers='t282001_h_8 t282001_c1_2 t282001_c2_24'>390</td>
+
+				</tr>
+	
+				<tr>
+				
+				
+<th class="tl" data-id ='t282001_c2_25' colspan='1' rowspan='1'>기타</th>
+	<td headers='t282001_h_0 t282001_c1_2 t282001_c2_25'>268</td>
+<td headers='t282001_h_1 t282001_c1_2 t282001_c2_25'>524</td>
+<td headers='t282001_h_2 t282001_c1_2 t282001_c2_25'>643</td>
+<td headers='t282001_h_3 t282001_c1_2 t282001_c2_25'>655</td>
+<td headers='t282001_h_4 t282001_c1_2 t282001_c2_25'>1,167</td>
+<td headers='t282001_h_5 t282001_c1_2 t282001_c2_25'>2,687</td>
+<td headers='t282001_h_6 t282001_c1_2 t282001_c2_25'>4,175</td>
+<td headers='t282001_h_7 t282001_c1_2 t282001_c2_25'>6,532</td>
+<td headers='t282001_h_8 t282001_c1_2 t282001_c2_25'>12,530</td>
+
+				</tr>
+			
+		</tbody>
+	</table>
+	<br>
+	
+	
+	
+	
+</html>
